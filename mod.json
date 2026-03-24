@@ -8,7 +8,7 @@
 	"id": "nathan-codes-shit.inputs_viewer",
 	"name": "Inputs Viewer",
 	"logo": "logo.png",
-	"version": "v1.3.1",
+	"version": "v1.3.2",
 	"developer": "Khronophobia",
 	"description": "Shows player inputs during gameplay. Updated to 2.208 by Nathan. Original can be found here: https://github.com/Khronophobia/Inputs-Viewer",
 	"links": {
