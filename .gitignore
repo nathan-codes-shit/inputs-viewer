@@ -1,0 +1,21 @@
+# Geode / C++ ignore
+build/
+bin/
+out/
+.vs/
+.vscode/
+*.user
+*.suo
+*.sln
+*.vcxproj
+*.filters
+geode/
+# Specific large files
+*.pch
+*.pdb
+*.lib
+*.obj
+*.tlog
+*.idb
+*.ipch
+*.log

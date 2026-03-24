@@ -1,0 +1,42 @@
+#include "GJBaseGameLayer.hpp"
+
+using namespace geode::prelude;
+
+
+$override
+void IVGJBaseGameLayer::handleButton(bool down, int button, bool isP1) {
+    GJBaseGameLayer::handleButton(down, button, isP1);
+
+    if (m_uiLayer) {
+        if (auto ivLayer = static_cast<inputs_viewer::InputsViewLayer*>(m_uiLayer->getChildByID("inputs-viewer"))) {
+            ivLayer->handleButton(down, static_cast<PlayerButton>(button), isP1);
+        }
+    }
+}
+
+$override
+void IVGJBaseGameLayer::resetLevelVariables() {
+    GJBaseGameLayer::resetLevelVariables();
+    
+    if (m_uiLayer) {
+        if (auto ivLayer = static_cast<inputs_viewer::InputsViewLayer*>(m_uiLayer->getChildByID("inputs-viewer"))) {
+            ivLayer->releaseAllButtons();
+        }
+    }
+}
+
+$override
+void IVGJBaseGameLayer::setupLevelStart(LevelSettingsObject* levelSettings) {
+    GJBaseGameLayer::setupLevelStart(levelSettings);
+    if (!Mod::get()->getSettingValue<bool>("enabled")) return;
+    if (m_fields->m_ivLayer) return;
+
+    if (m_isPlatformer) {
+        m_fields->m_ivLayer = inputs_viewer::InputsViewLayer::create(inputs_viewer::LevelSettingsType::Platformer);
+    } else {
+        m_fields->m_ivLayer = inputs_viewer::InputsViewLayer::create(inputs_viewer::LevelSettingsType::Classic);
+    }
+    m_fields->m_ivLayer->setID("inputs-viewer");
+    m_fields->m_ivLayer->setPosition(CCDirector::get()->getWinSize() * 0.5f);
+    m_uiLayer->addChild(m_fields->m_ivLayer);
+}
