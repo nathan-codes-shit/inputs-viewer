@@ -5,14 +5,14 @@
 		"mac": "2.2081",
 		"android": "2.2081"
 	},
-	"id": "khronophobia.inputs_viewer",
+	"id": "nathan-codes-shit.inputs_viewer",
 	"name": "Inputs Viewer",
 	"logo": "logo.png",
 	"version": "v1.3.1",
 	"developer": "Khronophobia",
-	"description": "Shows player inputs during gameplay. Updated to 2.208 by Nathan.",
+	"description": "Shows player inputs during gameplay. Updated to 2.208 by Nathan. Original can be found here: https://github.com/Khronophobia/Inputs-Viewer",
 	"links": {
-		"source": "https://github.com/Khronophobia/Inputs-Viewer"
+		"source": "https://github.com/nathan-codes-shit/inputs-viewer"
 	},
 	"tags": [
 		"interface"
