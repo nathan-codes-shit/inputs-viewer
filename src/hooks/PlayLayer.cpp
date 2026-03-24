@@ -7,10 +7,8 @@ struct IVPlayLayer : Modify<IVPlayLayer, PlayLayer> {
     $override
     void pauseGame(bool p0) {
         PlayLayer::pauseGame(p0);
-        if (auto uiLayer = this->m_uiLayer) {
-            if (auto ivLayer = static_cast<inputs_viewer::InputsViewLayer*>(uiLayer->getChildByID("inputs-viewer"))) {
-                ivLayer->releaseAllButtons();
-            }
+        if (auto ivLayer = static_cast<IVGJBaseGameLayer*>(static_cast<GJBaseGameLayer*>(this))->m_fields->m_ivLayer) {
+            ivLayer->releaseAllButtons();
         }
     }
 };

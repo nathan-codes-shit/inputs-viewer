@@ -7,10 +7,8 @@ $override
 void IVGJBaseGameLayer::handleButton(bool down, int button, bool isP1) {
     GJBaseGameLayer::handleButton(down, button, isP1);
 
-    if (m_uiLayer) {
-        if (auto ivLayer = static_cast<inputs_viewer::InputsViewLayer*>(m_uiLayer->getChildByID("inputs-viewer"))) {
-            ivLayer->handleButton(down, static_cast<PlayerButton>(button), isP1);
-        }
+    if (m_fields->m_ivLayer) {
+        m_fields->m_ivLayer->handleButton(down, static_cast<PlayerButton>(button), isP1);
     }
 }
 
@@ -18,10 +16,8 @@ $override
 void IVGJBaseGameLayer::resetLevelVariables() {
     GJBaseGameLayer::resetLevelVariables();
     
-    if (m_uiLayer) {
-        if (auto ivLayer = static_cast<inputs_viewer::InputsViewLayer*>(m_uiLayer->getChildByID("inputs-viewer"))) {
-            ivLayer->releaseAllButtons();
-        }
+    if (m_fields->m_ivLayer) {
+        m_fields->m_ivLayer->releaseAllButtons();
     }
 }
 
